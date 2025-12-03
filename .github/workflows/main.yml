@@ -24,7 +24,13 @@ jobs:
       - name: Run tests
         run: |
           echo "Test Project"
-          pytest
+          pytest -v
+      - name: Upload Report Txt
+        uses: actions/upload-artifact@v5
+        with:
+          name: Report_Of_Test
+          path: report.txt
+
 
   run:
     runs-on: ubuntu-latest
@@ -42,3 +48,12 @@ jobs:
       - name: Run project
         run: |
           echo "Run Project"
+
+  show:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Report Txt
+        uses: actions/download-artifact@v5
+        with:
+          name: Report_Of_Test
