@@ -1,6 +1,6 @@
-from fastapi import FastApi , HTTPException
+from fastapi import FastAPI, HTTPException
 
-app = FastApi()
+app = FastAPI()
 
 x = False
 if x:
